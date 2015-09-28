@@ -43,6 +43,15 @@ font-family: 'Roboto', sans-serif;
   margin-right: 1.4em;
   margin-left: .5em;
 }
+.fa-arrow-circle-o-right {
+    color: white;
+     text-align: right;
+    font-size: 50em;
+}
+.fa-arrow-circle-o-left{
+text-align: left;
+  
+}
   
 @media (max-width: 480px) {
   .header-title {
