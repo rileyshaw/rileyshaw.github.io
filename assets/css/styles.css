@@ -22,12 +22,15 @@
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
   color: white;
-  text-align: center;
+  text-align: center
+
 }
 
 .header-title {
   margin-top: 0;
 font-family: 'Roboto', sans-serif;
+
+text-align: center;
   font-size: 5em;
 
 }
@@ -41,16 +44,15 @@ font-family: 'Roboto', sans-serif;
   text-align: center;
   transition:color .2s ease;
   margin-right: 1.4em;
-  margin-left: .5em;
+  margin-left: 1em;
 }
 .fa-arrow-circle-o-right {
-    color: white;
-     text-align: right;
-    font-size: 50em;
+    float: right;
+    margin-right: .4em;
 }
 .fa-arrow-circle-o-left{
-text-align: left;
-  
+    float: left;
+    margin-left: .4em;
 }
   
 @media (max-width: 480px) {
@@ -61,4 +63,10 @@ text-align: left;
   .header-subtitle {
     font-size: 1em;
   }
+}
+.buttons{
+  position: relative;
+  top: 40%;
+  color: white;
+
 }
