@@ -1,3 +1,11 @@
+html.noscroll {
+    position: fixed; 
+    overflow-y: scroll;
+    width: 100%;
+}
+::-webkit-scrollbar {
+    display: none;
+}
 .main-header {
   height: 100vh;
 
@@ -37,6 +45,7 @@ text-align: center;
 .header-subtitle:hover, .header-subtitle:active{
   color: gray;
 }
+
 .header-subtitle {
     color: white;
   font-size: 1.6em;
@@ -46,13 +55,12 @@ text-align: center;
   margin-right: 1.4em;
   margin-left: 1em;
 }
-.fa-arrow-circle-o-right {
-    float: right;
-    margin-right: .4em;
-}
-.fa-arrow-circle-o-left{
-    float: left;
-    margin-left: .4em;
+.fa-arrow-circle-o-down{
+  position: absolute;
+  color: white;
+  text-align: center;
+  right:49%;
+  bottom:1%;
 }
   
 @media (max-width: 480px) {
@@ -68,5 +76,12 @@ text-align: center;
   position: relative;
   top: 40%;
   color: white;
+}
+#down_button{
+  cursor: pointer;
+   transition:color .2s ease;
 
+}
+#down_button:hover{
+  color: gray;
 }
