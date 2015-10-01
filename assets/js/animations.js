@@ -14,11 +14,11 @@ var keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
 
 var balls = [];
-for(var i = 0; i < 50; i++ ){
-	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5),(Math.random()-.5),red));
-	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5),(Math.random()-.5),blue));
-	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5),(Math.random()-.5),green));
-	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5),(Math.random()-.5),yellow));
+for(var i = 0; i < 100; i++ ){
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,2*(Math.random()-.5),0*(Math.random()-.5),red));
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,2*(Math.random()-.5),0*(Math.random()-.5),blue));
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,2*(Math.random()-.5),0*(Math.random()-.5),green));
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,2*(Math.random()-.5),0*(Math.random()-.5),yellow));
 }
 
 function preventDefault(e) {
@@ -88,14 +88,21 @@ $(document).ready(function() {
 });
 
 function Ball(x, y, vx, vy, color) {
+  this.radius = Math.random()*14+5;
   this.x = x;
   this.y = y;
-  this.vx = vx;
+ // this.vx = vx;
+ // this.vy = vy;
+  if(Math.random() > .5){
+  	this.vx = this.radius*.04;
+  }else{
+  	this.vx = this.radius*(-0.04);
+  }
+  
   this.vy = vy;
   this.color = color;
   this.origX = x;
   this.origY = y;
-  this.radius = 10;
 }
 
 window.requestAnimFrame = (function(callback) {
@@ -112,24 +119,24 @@ function nextMove(deltaTime){
 	for(var i = 0; i < balls.length; i++){
 		balls[i].y += balls[i].vy;
 		balls[i].x += balls[i].vx;
-		if(balls[i].y > (canvas.height - balls[i].radius)){
-			balls[i].y = canvas.height - balls[i].radius - 2;
+		if(balls[i].y > (canvas.height+200 - balls[i].radius)){
+			balls[i].y = canvas.height+200 - balls[i].radius - 2;
 			balls[i].vy = -balls[i].vy;
 		}
-	    if(balls[i].y < (balls[i].radius)){
-	    	balls[i].y = balls[i].radius + 2;
+	    if(balls[i].y < (balls[i].radius)-200){
+	    	balls[i].y = balls[i].radius-200 + 2;
 	    	balls[i].vy = -balls[i].vy;
 	    }
-	    if(balls[i].x > (canvas.width - balls[i].radius)) {
-	    	balls[i].x = canvas.width - balls[i].radius - 2;
+	    if(balls[i].x > (canvas.width+200 - balls[i].radius)) {
+	    	balls[i].x = canvas.width+200 - balls[i].radius - 2;
 	    	balls[i].vx = -balls[i].vx;
 	    }
-	    if(balls[i].x < (balls[i].radius)) {
-	    	balls[i].x = balls[i].radius + 2;
+	    if(balls[i].x < (balls[i].radius)-200) {
+	    	balls[i].x = balls[i].radius-200 + 2;
 	    	balls[i].vx = -balls[i].vx;
 	    }
 	     	
-		
+			
 	}
 
 }
