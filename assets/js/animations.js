@@ -15,10 +15,10 @@ var keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
 var balls = [];
 for(var i = 0; i < 50; i++ ){
-	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5)*3,(Math.random()-.5)*3,red));
-	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5)*3,(Math.random()-.5)*3,blue));
-	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5)*3,(Math.random()-.5)*3,green));
-	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5)*3,(Math.random()-.5)*3,yellow));
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5),(Math.random()-.5),red));
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5),(Math.random()-.5),blue));
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5),(Math.random()-.5),green));
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5),(Math.random()-.5),yellow));
 }
 
 function preventDefault(e) {
@@ -136,14 +136,13 @@ function nextMove(deltaTime){
 function animate(lastUpdateTime){
 	var time = new Date().getTime();
 	var deltaTime = time - lastUpdateTime;
-	console.log(balls[0]);
 	nextMove(deltaTime);
 	lastUpdateTime = time;
 	context.clearRect(0,0,canvas.width,canvas.height);
 	for(var i = 0; i < balls.length; i++){
 
 		context.beginPath();
-	
+		context.globalAlpha = 0.6;
 		context.arc(balls[i].x,balls[i].y,balls[i].radius,0,2*Math.PI,true);
 		context.fillStyle = balls[i].color;
 		context.closePath();
