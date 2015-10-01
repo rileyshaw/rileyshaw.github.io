@@ -1,11 +1,5 @@
-html.noscroll {
-    position: fixed; 
-    overflow-y: scroll;
-    width: 100%;
-}
-::-webkit-scrollbar {
-    display: none;
-}
+
+
 .main-header {
   height: 100vh;
 
@@ -16,7 +10,7 @@ html.noscroll {
 .black {
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 200vh;
 
   background-color: rgba(0, 0, 0, 0.9);
 }
@@ -58,30 +52,50 @@ text-align: center;
 .fa-arrow-circle-o-down{
   position: absolute;
   color: white;
-  text-align: center;
-  right:49%;
-  bottom:1%;
+   transform: translateX(-24px);
+  bottom: 1%;
 }
-  
-@media (max-width: 480px) {
-  .header-title {
-    font-size: 2em;
-  }
-
-  .header-subtitle {
-    font-size: 1em;
-  }
-}
-.buttons{
-  position: relative;
-  top: 40%;
+.down_button{
+    height: 100px;
   color: white;
-}
-#down_button{
+  text-align: center;
   cursor: pointer;
-   transition:color .2s ease;
+}
+.down_button:hover{
+  color: gray;
+}
+.fa-arrow-circle-o-up{
+  position: absolute;
+  color: white;
+   transform: translateX(-24px);
+}
+.up_button{
+  height: 100px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.up_button:hover{
+  color: gray;
+}
+.main-projects {
+  height: 1vh;
+
+  background-position: center center;
+  background-size: cover;
+}
+
+.project-subtitle {
+  color: white;
+  font-size: 1.6em;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  transition:color .2s ease;
 
 }
-#down_button:hover{
-  color: gray;
+.project-space{
+  height: 1vh;
+
+  background-position: center center;
+  background-size: cover;
 }
