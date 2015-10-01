@@ -7,6 +7,20 @@ var canvas, context;
 var curpage = 0;
 var keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
+  var blue = '#2D5BE5';
+  var red = '#F2555E';
+  var yellow = '#FFD15E';
+  var green = '#1BB02E';
+
+
+var balls = [];
+for(var i = 0; i < 50; i++ ){
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5)*3,(Math.random()-.5)*3,red));
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5)*3,(Math.random()-.5)*3,blue));
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5)*3,(Math.random()-.5)*3,green));
+	balls.push(new Ball(Math.random()*window.innerWidth,Math.random()*window.innerHeight,(Math.random()-.5)*3,(Math.random()-.5)*3,yellow));
+}
+
 function preventDefault(e) {
   e = e || window.event;
   if (e.preventDefault)
@@ -56,9 +70,14 @@ function prevPage(){
 $(document).ready(function() {
 	disableScroll();
 	canvas = document.getElementById("canv");
-
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
 	context = canvas.getContext("2d");
-	spawnBubbles();
+	
+	var time = new Date().getTime();
+	animate(time);
+
+
 	$(".down_button").click(function(){
 		$( 'html, body').animate({scrollTop: $(".main-projects").offset().top},400);
 	});
@@ -67,7 +86,77 @@ $(document).ready(function() {
 	});
 
 });
-function spawnBubbles(){
-	context.fillStyle = 'blue';
-	context.fillRect(100, 200, 2000, 1000);
+
+function Ball(x, y, vx, vy, color) {
+  this.x = x;
+  this.y = y;
+  this.vx = vx;
+  this.vy = vy;
+  this.color = color;
+  this.origX = x;
+  this.origY = y;
+  this.radius = 10;
 }
+
+window.requestAnimFrame = (function(callback) {
+    return window.requestAnimationFrame || 
+      window.webkitRequestAnimationFrame || 
+      window.mozRequestAnimationFrame || 
+      window.msRequestAnimationFrame ||
+      function(callback) {
+        window.setTimeout(callback, 1000/60);
+      };
+ })();
+function nextMove(deltaTime){
+	var speed = 0.005 * deltaTime;
+	for(var i = 0; i < balls.length; i++){
+		balls[i].y += balls[i].vy;
+		balls[i].x += balls[i].vx;
+		if(balls[i].y > (canvas.height - balls[i].radius)){
+			balls[i].y = canvas.height - balls[i].radius - 2;
+			balls[i].vy = -balls[i].vy;
+		}
+	    if(balls[i].y < (balls[i].radius)){
+	    	balls[i].y = balls[i].radius + 2;
+	    	balls[i].vy = -balls[i].vy;
+	    }
+	    if(balls[i].x > (canvas.width - balls[i].radius)) {
+	    	balls[i].x = canvas.width - balls[i].radius - 2;
+	    	balls[i].vx = -balls[i].vx;
+	    }
+	    if(balls[i].x < (balls[i].radius)) {
+	    	balls[i].x = balls[i].radius + 2;
+	    	balls[i].vx = -balls[i].vx;
+	    }
+	     	
+		
+	}
+
+}
+function animate(lastUpdateTime){
+	var time = new Date().getTime();
+	var deltaTime = time - lastUpdateTime;
+	console.log(balls[0]);
+	nextMove(deltaTime);
+	lastUpdateTime = time;
+	context.clearRect(0,0,canvas.width,canvas.height);
+	for(var i = 0; i < balls.length; i++){
+
+		context.beginPath();
+	
+		context.arc(balls[i].x,balls[i].y,balls[i].radius,0,2*Math.PI,true);
+		context.fillStyle = balls[i].color;
+		context.closePath();
+		context.fill();
+	}
+	requestAnimFrame(function() {
+    animate(lastUpdateTime);
+  	});
+
+}
+
+
+
+
+
+
