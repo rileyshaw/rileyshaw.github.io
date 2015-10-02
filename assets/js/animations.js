@@ -1,7 +1,7 @@
 var projects = [
-{projectName: "project1",linkToProject: "rileyshaw.net/project1.html"},
-{projectName: "project2",linkToProject: "rileyshaw.net/project2.html"},
-{projectName: "project3",linkToProject: "rileyshaw.net/project3.html"}
+{projectName: "project1", projectDescription: "nothing here", linkToProject: "rileyshaw.net/project1.html"},
+{projectName: "project2", projectDescription: "nothing here", linkToProject: "rileyshaw.net/project2.html"},
+{projectName: "project3", projectDescription: "nothing here", linkToProject: "rileyshaw.net/project3.html"}
 ]
 var canvas, context;
 var curpage = 0;
@@ -84,8 +84,15 @@ $(document).ready(function() {
 	$(".up_button").click(function(){
 		$( 'html, body').animate({scrollTop: $(".main-header").offset().top},400);
 	});
+	 $('#myButton').on('click', function () {
+	 	window.location.href = "rileyshaw.net/project1.html";
+  })
 
 });
+
+
+
+
 
 function Ball(x, y, vx, vy, color) {
   this.radius = Math.random()*14+5;

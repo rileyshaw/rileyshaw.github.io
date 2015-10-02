@@ -15,16 +15,6 @@
 
   background-color: rgba(0, 0, 0, 0.9);
 }
-.project-background {
-  position: absolute;
-  text-align: center;
-  z-index: 1;
-  width: 60%;
-  height: 50%;
-  background-color: rgba(0, 0, 0, .95);
-
-}
-
 .header-text {
   position: relative;
   top: 40%;
@@ -101,20 +91,65 @@ text-align: center;
   text-align: center
 
 }
-.project-subtitle {
+.project-background {
+  position: absolute;
+  
+  z-index:0;
+  width: 76%;
+  height: 70%;
+  left: 12%;
+  top: 120%;
+  background-color: rgba(0, 0, 0, .90);
+  text-align: center;
+}
+.project-header {
+  position: absolute;
   color: white;
+  z-index:1;
   font-size: 1.6em;
+  width: 76%;
+  
+  left: 12%;
   font-family: 'Roboto', sans-serif;
   text-align: center;
 
 }
-.project-space{
-  height: 1vh;
-
-  background-position: center center;
-  background-size: cover;
+.project-subtitle {
+  position: relative;
+  color: white;
+  z-index:-2;
+  font-size: 5em;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  left: 10%;
+  top: 2%;
 }
 
+.project-description {
+  position: relative;
+  color: white;
+  z-index:-2;
+  font-size: 1.6em;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  left: 5%;
+  word-wrap: break-word;
+  width: 40%;
+  top: 12%;
+
+}
+.project-preview {
+  position: absolute;
+  width: 50%;
+  height: 70%;
+  left: 47%;
+  bottom: 15%;
+}
+.project-button {
+  position: relative;
+  top: 60%;
+  left: 27%;
+}
 #canv{
   position: fixed;
 }
