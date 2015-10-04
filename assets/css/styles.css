@@ -56,12 +56,12 @@ text-align: center;
   bottom: 1%;
 }
 .down_button{
-    height: 100px;
+  height: 100px;
   color: white;
   text-align: center;
   cursor: pointer;
 }
-.down_button:hover{
+.fa-arrow-circle-o-up:hover, .fa-arrow-circle-o-down:hover, .fa-arrow-circle-o-right:hover , .fa-arrow-circle-o-left:hover{
   color: gray;
 }
 .fa-arrow-circle-o-up{
@@ -74,9 +74,6 @@ text-align: center;
   color: white;
   text-align: center;
   cursor: pointer;
-}
-.up_button:hover{
-  color: gray;
 }
 .main-projects {
   height: 100vh;
@@ -122,6 +119,7 @@ text-align: center;
   font-family: 'Roboto', sans-serif;
   text-align: left;
   left: 10%;
+  width: 30%;
   top: 2%;
 }
 
@@ -147,9 +145,42 @@ text-align: center;
 }
 .project-button{
   position: relative;
+  width: 10%;
   top: 60%;
   left: 27%;
 }
+.btn-primary { 
+  color: #ffffff !important; 
+  background-color: #000000 !important; 
+  border-color: #FFFFFF !important; 
+} 
+.right_button{
+  height: 100px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.fa-arrow-circle-o-right{
+   top: 150%;
+   right: 7.5%;
+  position: absolute;
+  color: white;
+   transform: translateX(-24px);
+}
+.left_button{
+  height: 100px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.fa-arrow-circle-o-left{
+   top: 150%;
+   left: 10%;
+  position: absolute;
+  color: white;
+   transform: translateX(-24px);
+}
+
 #canv{
   position: fixed;
 }

@@ -84,6 +84,13 @@ $(document).ready(function() {
 	$(".up_button").click(function(){
 		$( 'html, body').animate({scrollTop: $(".main-header").offset().top},400);
 	});
+	$(".right_button").click(function(){
+		console.log("h");
+		$(".main-header").show("slide", { direction: "left" }, 1000);
+	});
+	$(".left_button").click(function(){
+		$( 'html, body').animate({scrollRight: $(".main-header").offset().right},400);
+	});
 	 $('#myButton').on('click', function () {
 	 	window.location.href = "rileyshaw.net/project1.html";
   })
