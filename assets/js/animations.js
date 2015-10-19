@@ -92,7 +92,8 @@ $(document).ready(function() {
 		$( 'html, body').animate({scrollRight: $(".main-header").offset().right},400);
 	});
 	 $('#myButton').on('click', function () {
-	 	window.location.href = "rileyshaw.net/project1.html";
+	 	var win = window.open("www.aislefive.rileyshaw.net/index.php", '_blank');
+ 		win.focus();
   })
 
 });
